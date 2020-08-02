@@ -25,7 +25,7 @@ input({
 ```
 Input takes a js object as parameter
 
-# # Options
+## Options
 
 `prompt`: A string printed on the terminal when user is prompted
 
