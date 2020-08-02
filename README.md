@@ -1,5 +1,5 @@
 # input-js
-prompt for user input through terminal
+Prompt for user input through terminal
 
 In order to use the module
 ```
@@ -26,7 +26,7 @@ input({
 ```
 Input takes a js object as parameter
 
-#Options
+# Options
 
 `prompt`: A string printed on the terminal when user is prompted
 
