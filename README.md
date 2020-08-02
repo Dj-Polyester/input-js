@@ -23,9 +23,9 @@ input({
 
 )
 ```
-Input takes a js object as parameter
+`input` function takes a js object as parameter
 
-## Options
+## Options for the js object
 
 `prompt`: A string printed on the terminal before the prompt
 
