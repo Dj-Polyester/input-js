@@ -5,7 +5,6 @@ In order to use the module
 ```
 const input = require("./input")
 
-input(
 input({
   prompt: "Who are you?",
   response: (line) => {
