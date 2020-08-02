@@ -27,7 +27,7 @@ Input takes a js object as parameter
 
 ## Options
 
-`prompt`: A string printed on the terminal when user is prompted
+`prompt`: A string printed on the terminal before the prompt
 
 `response`: Runs a handler function when the enter key is pressed, with a single parameter `line` which is the string in the previous line typed by the user.
 
