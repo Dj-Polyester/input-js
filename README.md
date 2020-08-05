@@ -32,7 +32,18 @@ input({
 
 `prompt`: A string printed on the terminal before the prompt
 
-`response`: Runs a handler function when the enter key is pressed, with parameters `line` which is the string in the previous line typed by the user, and the `prompt`.
+`response`: Runs a handler function when the enter key is pressed, with a js object `obj`, which is as below.
+
+```
+obj {
+  data: what is written in the previous line without newline character
+  prompt: passed prompt value
+  lines: passed lines value
+  hidden: passed hidden value
+  child: passed child value
+}
+
+```
 
 `lines`: How many lines user will be prompted to
 

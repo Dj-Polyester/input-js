@@ -42,8 +42,8 @@ async function input(keyvalue) {
           if (!lines) process.stdin.pause();
           if (!hidden) process.stdout.write("\n");
           const reskey = keyvalue["response"];
-          if (reskey) reskey(data, prompt);
-          else resolve({ data, prompt });
+          if (reskey) reskey({ data, prompt, lines, hidden, child });
+          else resolve({ data, prompt, lines, hidden, child });
           data = "";
         } else {
         }
