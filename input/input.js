@@ -5,7 +5,9 @@ async function input(keyvalue) {
   return new Promise((resolve, reject) => {
     var lines = keyvalue["lines"];
     var hidden = keyvalue["hidden"];
+    if (hidden === undefined) hidden = false;
     var child = keyvalue["child"];
+    if (child === undefined) child = false;
     if (child) hidden = true;
 
     if (!lines) lines = 1;
