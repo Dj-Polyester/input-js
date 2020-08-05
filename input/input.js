@@ -3,10 +3,12 @@ const readline = require("readline");
 process.stdin.pause();
 
 function input(keyvalue) {
-  var lines = keyvalue["lines"] - 1;
+  var lines = keyvalue["lines"];
+  if (!lines) lines = 1;
+  else if (lines === "inf") lines = -1;
   const prompt = keyvalue["prompt"];
   var data = "";
-  if (prompt) console.log(prompt);
+  if (prompt) process.stdout.write(prompt);
 
   process.stdin.resume();
 
@@ -14,7 +16,7 @@ function input(keyvalue) {
   process.stdin.setRawMode(true);
 
   process.stdin.on("keypress", function (chunk, key) {
-    process.stdin.write(key.sequence);
+    process.stdout.write(key.sequence);
 
     if (key && key.ctrl) {
       const ctrlkey = keyvalue["ctrl-" + key.name];
@@ -32,8 +34,8 @@ function input(keyvalue) {
       }
       //response if return not specified
       else if (!tmpkey && key.name === "return") {
-        if (lines) --lines;
-        else if (lines === 0) process.stdin.pause();
+        --lines;
+        if (!lines) process.stdin.pause();
         process.stdin.write("\n");
         const reskey = keyvalue["response"];
         if (reskey) reskey(data);
