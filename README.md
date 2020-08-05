@@ -32,7 +32,7 @@ input({
 
 `prompt`: A string printed on the terminal before the prompt
 
-`response`: Runs a handler function when the enter key is pressed, with a single parameter `line` which is the string in the previous line typed by the user.
+`response`: Runs a handler function when the enter key is pressed, with parameters `line` which is the string in the previous line typed by the user, and the `prompt`.
 
 `lines`: How many lines user will be prompted to
 
@@ -49,22 +49,22 @@ to simulate loops
 input({
   prompt: "Who are you?",
 })
-  .then((data) => {
-    console.log(data);
+  .then((line) => {
+    console.log(line);
     return input({
       prompt: "How old are you?",
       child: true,
     });
   })
-  .then((data) => {
-    console.log(data);
+  .then((line) => {
+    console.log(line);
     return input({
       prompt: "What do you do?",
       child: true,
     });
   })
-  .then((data) => {
-    console.log(data);
+  .then((line) => {
+    console.log(line);
   });
 
 ```

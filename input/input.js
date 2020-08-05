@@ -86,7 +86,7 @@ async function input(keyvalue) {
           if (!lines) process.stdin.pause();
           if (!hidden) process.stdin.write("\n");
           const reskey = keyvalue["response"];
-          if (reskey) reskey(data);
+          if (reskey) reskey(data, prompt);
           else resolve(data);
           data = "";
         }
