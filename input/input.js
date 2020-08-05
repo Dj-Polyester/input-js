@@ -92,9 +92,6 @@ async function input(keyvalue) {
         }
       }
     });
-    process.stdin.off("keypress", () => {
-      console.log("fuck");
-    });
   });
 }
 
