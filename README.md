@@ -9,8 +9,8 @@ const input = require("./input")
 
 input({
   prompt: "Who are you?",
-  response: (line) => {
-    console.log(line);
+  response: (obj) => {
+    console.log(obj);
   },
   lines: 1,
   "ctrl-c": () => {
@@ -53,29 +53,29 @@ obj {
 
 `ctrl-key`: Any key in conjuction with control key, runs a handler function when the key is pressed
 
-`input` function returns a promise resolving the `line` parameter. When `response` option is not used, this can be used to chain input calls
+`input` function returns a promise resolving the `obj` parameter. When `response` option is not used, this can be used to chain input calls
 to simulate loops
 
 ```
 input({
   prompt: "Who are you?",
 })
-  .then((line) => {
-    console.log(line);
+  .then((obj) => {
+    console.log(obj);
     return input({
       prompt: "How old are you?",
       child: true,
     });
   })
-  .then((line) => {
-    console.log(line);
+  .then((obj) => {
+    console.log(obj);
     return input({
       prompt: "What do you do?",
       child: true,
     });
   })
-  .then((line) => {
-    console.log(line);
+  .then((obj) => {
+    console.log(obj);
   });
 
 ```
