@@ -8,7 +8,7 @@ function input(keyvalue) {
   else if (lines === "inf") lines = -1;
   const prompt = keyvalue["prompt"];
   var data = "";
-  if (prompt) process.stdout.write(prompt);
+  if (prompt) process.stdin.write(prompt);
 
   process.stdin.resume();
 
@@ -30,7 +30,7 @@ function input(keyvalue) {
       //backspace if not specified
       else if (!tmpkey && key.name === "backspace") {
         process.stdin.write("\b \b");
-        data = data.slice(0, -1);
+        data = data.slice(0, -2);
       }
       //response if return not specified
       else if (!tmpkey && key.name === "return") {
