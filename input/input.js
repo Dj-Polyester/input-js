@@ -70,7 +70,7 @@ async function input(keyvalue) {
         const ctrlkey = keyvalue["ctrl-" + key.name];
         if (ctrlkey) ctrlkey();
       } else if (key) {
-        data += key.sequence;
+        if (key.name !== "return") data += key.sequence;
 
         const tmpkey = keyvalue[key.name];
         //all keys on the keyboard
@@ -78,17 +78,18 @@ async function input(keyvalue) {
         //backspace if not specified
         else if (!tmpkey && key.name === "backspace") {
           process.stdin.write("\b \b");
-          data = data.slice(0, -2);
+          data = data.slice(0, -1);
         }
         //response if return not specified
         else if (!tmpkey && key.name === "return") {
           --lines;
           if (!lines) process.stdin.pause();
-          if (!hidden) process.stdin.write("\n");
+          if (!hidden) process.stdout.write("\n");
           const reskey = keyvalue["response"];
           if (reskey) reskey(data, prompt);
-          else resolve(data);
+          else resolve({ data, prompt });
           data = "";
+        } else {
         }
       }
     });
